@@ -1,0 +1,1 @@
+comand pattern decouples an object of invocation from the object that recieves the message. The command pattern lets us encapsulate the object until a later time when it is needed.

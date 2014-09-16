@@ -7,7 +7,7 @@ class SingletonClass
     @file = File.open("log.txt", "a")
   end
 
-  def log(msg)
-    @file.puts(msg)
+  def show(content)
+    @file.puts(content)
   end
 end

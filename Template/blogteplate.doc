@@ -1,0 +1,43 @@
+
+Template Method Pattern
+
+The template pattern is useful when you have a method whose algorithm varies as you will see in the example.The idea behind a template pattern is that you have a base class which contains abstract methods(also called template methods) that  the concrete subclasses  will  implement.you can then pick the variation you want by selecting one of the concrete subclasses. You can liken this base class to an interface (for those who are farmiliar with c# and java). In ruby there are no interfaces but nevetherless they is a way of mimicking an interface in ruby.
+
+
+class Good
+
+	def basic_tax(cost)
+		raise 'Called abstract method: basic_tax'
+	end
+
+	
+end
+
+class TaxedGood < Good
+	TaxRate = (10.00/100)
+	
+	
+	def basic_tax(cost)
+
+		tax = TaxRate * productCost
+		return tax.round(2)
+	end
+
+end
+
+class ExemptedGood < Good
+	def basic_tax(cost)
+		tax = 0.0
+		return tax
+	end
+
+end
+
+You can then pick a variation by picking one of the concrete subclasses like this
+
+tax = TaxedGood.new
+tax.basic_tax(400)
+
+or
+tax = ExemptedGood.new
+tax.basic_tax(400)
